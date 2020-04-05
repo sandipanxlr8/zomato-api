@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet,Image, ScrollView } from 'react-native';
+import {View, Text, StyleSheet, Image,ScrollView, SafeAreaView } from 'react-native';
 import { AuthSession } from 'expo';
 import { FlatList } from 'react-native-gesture-handler';
 
@@ -7,8 +7,7 @@ const RestaurantsShowScreen = ({ navigation }) => {
   const result = navigation.getParam('result');
 
   return (
-    <>
-      <ScrollView >
+      <SafeAreaView style={styles.container}>
         <Image style={styles.image} source={{uri: result.thumb}} />
         <Text style={styles.title}>{result.name}</Text>
         <Text style={styles.name}>Timings</Text>
@@ -19,20 +18,19 @@ const RestaurantsShowScreen = ({ navigation }) => {
         <Text>{result.cuisines}</Text>
         <Text style={styles.name}>Highlights</Text>
         <FlatList
-          showsHorizontalScrollIndicator={false}
           data={result.highlights}
           keyExtractor={ (it) => it}
           renderItem={ ({ item }) =>{
             return<Text>{item}</Text>;
           }}
         />
-      </ScrollView>
-    </>
+      </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     marginHorizontal: 15
   },
   image: {
