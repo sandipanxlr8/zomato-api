@@ -2,7 +2,7 @@
 
 Getting Sterted with React-Native
 
-fetching restaurants from Zomato and categorising them on the basis of price.
+React-Native app to fetch restaurants from Zomato and categorising them on the basis of price.
   1.Cost Effective
   2.Bit Pricier
   3.Big Spender
